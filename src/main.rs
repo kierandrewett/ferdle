@@ -40,7 +40,7 @@ fn cleanse_guess(guess: &String) -> String {
 }
 
 fn is_debug() -> bool {
-    env::var("WORDLE_GAME_DEBUG").is_ok()
+    env::var("FERDLE_GAME_DEBUG").is_ok()
 }
 
 fn main() {
@@ -68,7 +68,7 @@ fn main() {
             print!("\x1B[2J\x1B[1;1H");
         }
 
-        println!("{gap}{}{gap}{gap}", "WORDLE".underline().bold());
+        println!("{gap}{}{gap}{gap}", "FERDLE".underline().bold());
         println!();
 
         for row in board {
@@ -89,7 +89,7 @@ fn main() {
 
     redraw_board(&board);
 
-    'wordle_loop: loop {
+    'ferdle_loop: loop {
         if is_debug() {
             println!("rows={current_row} col={current_col} word={word}");
         }
@@ -159,11 +159,11 @@ fn main() {
                             if joined_guess == word {
                                 println!("{gap}{}{gap}", WIN_MESSAGES[current_row-1].green().bold());
                                 println!("{gap}The word was {}.{gap}", word.underline().bold());
-                                break 'wordle_loop;
+                                break 'ferdle_loop;
                             } else if current_row > NUMBER_OF_GUESSES-1 {
                                 println!("{gap}{}{gap}", "Game over!".red().bold());
                                 println!("{gap}The word was {}.{gap}", word.underline().bold());
-                                break 'wordle_loop;
+                                break 'ferdle_loop;
                             } else {
                                 // Go to next line
                                 current_col = 0;
