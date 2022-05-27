@@ -148,7 +148,7 @@ fn main() {
                                 }
                             }
 
-                            if joined_guess == word {
+                            if joined_guess == word.to_uppercase() {
                                 board[current_row-1] = cut_word
                                     .iter()
                                     .map(|x| format!("[{x}]").green().bold().to_uppercase()).collect();
