@@ -1,0 +1,14 @@
+[package]
+name = "slant-launcher"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+termsize = "0.1"
+colored = "2"
+phf = { version = "0.10", features = ["macros"] }
+termion = "1.5.6"
+console = "0.15.0"
+rand = "0.8.5"
